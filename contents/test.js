@@ -6,13 +6,14 @@ const { range } = require("./range");
 const { distance } = require("./distance");
 const { zipConvert } = require("./zipConvert");
 
-const test = async (lat, lon, radius, postalcode) => {
+const test = async (postalcode, radius) => {
+    console.log(radius)
     const converted = await zipConvert(postalcode)
     // console.log(converted)
-    lat = converted.LATITUDE
-    lon = converted.LONGITUDE
+    let lat = converted.LATITUDE
+    let lon = converted.LONGITUDE
     // console.log(lat, lon)
-    const coordlist = await range({ lat: lat, lon: lon }, (radius + 1) * 1609);
+    const coordlist = await range({ lat: lat, lon: lon }, (Number(radius) + 1) * 1609);
     // console.log(coordlist)
     const query = await storeQuery(coordlist);
     // console.log(query)
@@ -34,4 +35,4 @@ const test = async (lat, lon, radius, postalcode) => {
     return distances;
 };
 
-test(null, null, 10, 85373);
+test(process.argv[2], process.argv[3]);
