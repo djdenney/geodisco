@@ -1,5 +1,5 @@
 {
-  "name": "geodistcalc",
+  "name": "geodisco",
   "version": "0.0.1",
   "description": "a simple dependency-free calculator that will return the difference between two points of latitude and longitude or calculate a circular range from a single point and distance",
   "main": "index.js",
