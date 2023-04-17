@@ -1,6 +1,6 @@
 a simple dependency-free geographic distance and range calculator.
 
-#use
+# use
 run `npm install geodisco`
 
 script
